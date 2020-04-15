@@ -1,0 +1,42 @@
+<section id="GUI" class="container-fluid" style="background-image: url(./assets/images/solaris-intro.gif); background-size: cover; height: 100%;">
+  <div class="row justify-content-center">
+    <div class="col-12 bg-dark pt-2 pb-2 border-bottom">
+      <img src="./assets/images/solaris-login-logo.png" height="40" width="228" class="float-left" />
+
+      <h4 class="float-right mt-2">Security. Privacy. Liberty.</h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4" style="padding-top: 60px;">
+      <div class="card mt-4" style="opacity: 0.97; filter: alpha(opacity=97);">
+        <div class="card-body">
+          <h3 class="title-bottom-border">Create or restore</h3>
+
+          <div class="row mb-2">
+            <div class="col-12 pl-3 pr-3">
+              If you would like to create a new wallet, please click <strong>Create</strong>.
+              If you have used the wallet before, please select <strong>Restore</strong> to recover your old wallet.
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-12">
+              <button type="button" class="btn btn-block btn-lg btn-success" (click)="onCreateClicked()">CREATE</button>
+            </div>
+          </div>
+          <div class="row mb-2">
+            <div class="col-12">
+              <button type="button" class="btn btn-block btn-lg btn-primary" (click)="onRecoverClicked()">RESTORE</button>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12">
+              <button type="button" class="btn btn-block btn-lg btn-danger" (click)="onBackClicked()">BACK</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /col -->
+  </div>
+</section>
+<!-- /GUI-->

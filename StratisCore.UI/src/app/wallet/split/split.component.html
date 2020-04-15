@@ -1,0 +1,47 @@
+<div class="modal-header">
+  <h5 class="modal-title">Split coins</h5>
+  <!-- button close -->
+  <button type="button" class="close closemodal ml-auto" (click)="activeModal.close('Close click')">
+    <i class="lnr lnr-cross"></i>
+  </button>
+  <!-- /button close -->
+</div>
+<div class="modal-body ModalSend pt-0">
+  <!-- TABS -->
+  <div class="form-group clearfix mb-0">
+    <div class="mt-2">
+      <form [formGroup]="splitForm">
+        <div class="form-group clearfix">
+          <label class="float-left" for="amount">Amount</label>
+          <label class="float-right" for="totalAmount">Spendable: {{ spendableBalance | coinNotation }} {{ coinUnit }}</label>
+          <div class="input-group">
+            <input type="text" class="form-control" [class.is-invalid]="splitFormErrors.amount" [class.is-valid]="!splitFormErrors.amount && splitForm.get('amount').valid" formControlName="amount" placeholder="0.00 {{ coinUnit }}">
+            <span class="input-group-btn">
+              <button class="btn btn-primary btn-sm" (click)="getMaxAmount()">MAX</button>
+            </span>
+          </div>
+          <div *ngIf="splitFormErrors.amount" class="invalid-feedback">{{ splitFormErrors.amount }}</div>
+        </div>
+        <div class="form-group clearfix">
+          <label class="float-left" for="utxos">UTXO's</label>
+          <input type="number" class="form-control" [class.is-invalid]="splitFormErrors.utxos" [class.is-valid]="!splitFormErrors.utxos && splitForm.get('utxos').valid" formControlName="utxos" placeholder="2">
+          <div *ngIf="splitFormErrors.utxos" class="invalid-feedback">{{ splitFormErrors.utxos }}</div>
+        </div>
+        <div class="form-group clearfix">
+          <label class="float-left" for="password">Wallet password</label>
+          <input type="password" class="form-control" [class.is-invalid]="splitFormErrors.password" [class.is-valid]="!splitFormErrors.password && splitForm.get('password').valid" formControlName="password" placeholder="Your wallet password">
+          <div *ngIf="splitFormErrors.password" class="invalid-feedback">{{ splitFormErrors.password }}</div>
+        </div>
+        <div class="modal-footer p-0">
+          <button *ngIf="!isSending" type="button" [disabled]="isSending" class="btn btn-danger text-uppercase" (click)="activeModal.close('Close click')">Cancel</button>
+          <button *ngIf="!isSending" type="button" class="btn btn-primary btn-block text-uppercase" [disabled]="!splitForm.valid || isSending" (click)="split()">Split</button>
+          <!-- SVG -->
+          <div *ngIf="isSending" class="Loading LoadingSend col-2 mx-auto">
+            <img src="./assets/images/loading.svg" width="30" height="30"/>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- /TABS -->
+</div>

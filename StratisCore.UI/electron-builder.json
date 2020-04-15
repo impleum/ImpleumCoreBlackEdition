@@ -1,0 +1,68 @@
+{
+  "appId": "com.solarisplatform.core",
+  "productName": "Solaris Core",
+  "publish": null,
+  "directories": {
+    "output": "app-builds"
+  },
+  "files": [
+    "**/*",
+    "!**/*.ts",
+    "!*.code-workspace",
+    "!LICENSE.md",
+    "!package.json",
+    "!package-lock.json",
+    "!src/",
+    "!e2e/",
+    "!angular.json",
+    "!_config.yml",
+    "!karma.conf.js",
+    "!tsconfig.json",
+    "!tslint.json"
+  ],
+  "win": {
+    "icon": "dist/assets/images/icon",
+    "target": [
+      "nsis"
+    ],
+    "signingHashAlgorithms": [ "sha256" ],
+    "certificateSubjectName": "CN=CryptSoft B.V., O=CryptSoft B.V., STREET=Siriusdreef 17-27, L=Hoofddorp, S=North-Holland, PostalCode=2132 WT, C=NL",
+    "artifactName": "${productName}-v${version}-setup-${os}-${arch}.${ext}"
+  },
+  "linux": {
+    "icon": "dist/assets/images/",
+    "target": [
+      "deb",
+      "tar.gz"
+    ],
+    "synopsis": "StratisCore.UI: Solaris' staking wallet.",
+    "category": "Utility",
+    "artifactName": "${productName}-v${version}-${os}-${arch}.${ext}"
+  },
+  "mac": {
+    "icon": "dist/assets/images/icon.icns",
+    "target": [
+      "dmg"
+    ],
+    "category": "public.app-category.productivity",
+    "artifactName": "${productName}-v${version}-${os}-${arch}.${ext}"
+  },
+  "nsis": {
+    "oneClick": false,
+    "perMachine": true,
+    "allowToChangeInstallationDirectory": true,
+    "deleteAppDataOnUninstall": true,
+    "guid": "84d5b240-9fee-4f49-ae5f-15f663189175",
+    "createDesktopShortcut": true,
+    "createStartMenuShortcut": true,
+    "license": "src/assets/images/license_en.txt"
+  },
+  "msi": {
+    "warningsAsErrors": false
+  },
+  "extraResources": [
+    "daemon/**/*",
+    "src/assets/images/icon-tray.png",
+    "src/assets/images/license_en.txt"
+  ]
+}

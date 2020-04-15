@@ -1,0 +1,51 @@
+<!-- MODAL RECEIVE -->
+<div class="modal-header">
+  <h5 class="modal-title">Signature</h5>
+  <!-- button close -->
+  <button type="button" class="close closemodal ml-auto" (click)="activeModal.close('Close click')">
+    <i class="lnr lnr-cross"></i>
+  </button>
+  <!-- /button close -->
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label>Signature value</label>
+      <code style="word-break: break-all;" class="form-control">{{ content }}</code>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary"
+              ngxClipboard [cbContent]="content" (click)="onCopiedClick()">
+        <i class="lnr lnr-file-add"></i> Copy signature value
+      </button>
+    </div>
+    <div class="form-group">
+      <label>Address</label>
+      <code style="word-break: break-all;" class="form-control">{{ address }}</code>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary"
+              ngxClipboard [cbContent]="address" (click)="onCopiedClick()">
+        <i class="lnr lnr-file-add"></i> Copy address
+      </button>
+    </div>
+    <div class="form-group">
+      <label>Message</label>
+      <code style="word-break: break-all;" class="form-control">{{ message }}</code>
+    </div>
+    <div class="form-group">
+      <button type="button" class="btn btn-primary"
+              ngxClipboard [cbContent]="message" (click)="onCopiedClick()">
+        <i class="lnr lnr-file-add"></i> Copy message
+      </button>
+    </div>
+  </form>
+  <div *ngIf="copied" class="alert alert-success alert-dismissible fade show mt-3 mb-0" role="alert">
+    Copied to your clipboard
+  </div>
+
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary btn-block" (click)="activeModal.close('Close click')">OK</button>
+</div>
+<!-- /MODAL RECEIVE -->

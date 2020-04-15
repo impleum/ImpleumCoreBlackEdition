@@ -1,0 +1,31 @@
+<div class="modal-header">
+  <h5 class="modal-title">Hot address</h5>
+  <button type="button" class="close closemodal ml-auto" data-dismiss="modal" aria-label="Close" (click)="closeClicked()">
+    <i class="lnr lnr-cross"></i>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      Here's your hot address. Use this address to configure your cold staking setup.
+    </div>
+    <div class="text-warning mb-3">
+      <span class="lnr lnr-warning"></span> Only use this address for Cold Staking setup. Normal transactions to this address are not recoverable.
+    </div>
+    <label>Address</label>
+    <div class="input-group">
+      <input class="form-control" type="text" placeholder="{{address}}" readonly>
+      <div class="input-group-append">
+        <div class="input-group-append">
+          <button class="btn btn-primary ml-2" type="button" id="" (click)="copyClicked()"><i class="lnr lnr-file-add"></i> COPY</button>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="addressCopied" class="alert alert-success alert-dismissible fade show mt-3" role="alert">
+      Your address has been copied to your clipboard.
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary btn-block" data-dismiss="modal" (click)="closeClicked()">OK</button>
+</div>

@@ -1,0 +1,48 @@
+<section id="GUI">
+  <section id="content">
+    <div class="container-fluid">
+      <div class="row mb-2 mt-2">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="float-right">
+                <button class="btn btn-success mr-2 mb-2 text-uppercase" style="display: inline-block" (click)="addNewAddressClicked()"><span class="lnr lnr-plus-circle"></span> Add New Address</button>
+              </div>
+              <h3 class="clearfix title-bottom-border">Address book</h3>
+              <div class="row">
+                <ng-template #noAddresses>
+                  <div class="col-12 text-center">
+                    <p>Looks like you have no addresses in your address book yet.</p>
+                  </div>
+                </ng-template>
+              </div>
+              <div *ngIf="addresses; else noAddresses">
+                <div class="row" *ngFor="let addressRow of addresses">
+                  <div class="card border-0 Addresses col-12 my-1">
+                    <div class="card-body rows pb-2">
+                      <dl class="d-flex align-items-center mb-0">
+                        <dt class="col-3 mb-0">{{addressRow.label}}</dt>
+                        <dd class="col-6 mb-0">
+                          <div class="myAddress d-inline">
+                            <code class="d-inline-block">{{addressRow.address}}</code>
+                            <button class="btn btn-primary d-inline-block ml-2 btn-sm" title="Copy to Clipboard" (click)="copyToClipboardClicked(addressRow)" type="button">
+                              <i class="lnr lnr-file-add"></i> COPY
+                            </button>
+                          </div>
+                        </dd>
+                        <dd class="col-3 mb-0 text-right">
+                          <button type="button" class="btn btn-outline-primary btn-sm ml-2" (click)="sendClicked(addressRow)">Send</button>
+                          <button type="button" class="btn btn-outline-danger btn-sm ml-2" (click)="removeClicked(addressRow)"><i class="lnr lnr-trash"></i></button>
+                        </dd>
+                      </dl>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</section>

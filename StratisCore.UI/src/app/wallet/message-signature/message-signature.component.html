@@ -1,0 +1,73 @@
+<section id="GUI">
+  <!-- CONTAINER -->
+  <section id="content">
+    <div class="container-fluid">
+    <div class="row mb-2 mt-2">
+      <div class="col-12">
+        <div class="card mb-4">
+          <div class="card-body">
+            <section class="col-12">
+              <ngb-tabset type="tabs" class="nav-fill">
+                <ngb-tab class="nav-link" title="Sign">
+                  <ng-template ngbTabContent>
+                    <form [formGroup]="signatureForm">
+                      <div class="form-group">
+                        <label>Signature address</label>
+                        <select class="custom-select col-12 form-control" formControlName="address" [class.is-invalid]="signatureFormErrors.address" [class.is-valid]="!signatureFormErrors.address && signatureForm.get('address').valid">
+                          <option value="" disabled selected>Choose the address</option>
+                          <option *ngFor="let address of allAddresses" [value]="address.address">{{ address.address }}</option>
+                        </select>
+                        <div *ngIf="signatureFormErrors.address" class="invalid-feedback">{{ signatureFormErrors.address }}</div>
+                      </div>
+                      <div class="form-group">
+                        <input type="checkbox" name="showUnused" id="showUnused" (change)="onShowUnusedAddressedChanged($event.target)" /> <label for="showUnused">Show unused addresses</label>
+                      </div>
+                      <div class="form-group">
+                        <label>Message</label>
+                        <textarea class="form-control" style="height: 100px;" placeholder="Enter the message that you want to sign" formControlName="message" [class.is-invalid]="signatureFormErrors.message" [class.is-valid]="!signatureFormErrors.message && signatureForm.get('message').valid"></textarea>
+                        <div *ngIf="signatureFormErrors.message" class="invalid-feedback">{{ signatureFormErrors.message }}</div>
+                      </div>
+                      <div class="form-group">
+                        <label>Wallet password</label>
+                        <input class="form-control" type="password" formControlName="password" [class.is-invalid]="signatureFormErrors.password" [class.is-valid]="!signatureFormErrors.password && signatureForm.get('password').valid" />
+                        <div *ngIf="signatureFormErrors.password" class="invalid-feedback">{{ signatureFormErrors.password }}</div>
+                      </div>
+                      <div class="form-group">
+                        <button type="button" class="btn btn-block btn-lg btn-primary text-uppercase" (click)="onSignButtonClick($event.target)" [disabled]="!signatureForm.valid">Sign</button>
+                      </div>
+                    </form>
+                  </ng-template>
+                </ngb-tab>
+                <ngb-tab class="nav-link" title="Verify">
+                  <ng-template ngbTabContent>
+                    <form [formGroup]="verifyForm">
+                      <div class="form-group">
+                        <label>Signature address</label>
+                        <input class="form-control" formControlName="address" [class.is-invalid]="verifyFormErrors.address" [class.is-valid]="!verifyFormErrors.address && verifyForm.get('address').valid" placeholder="Enter the address of the signature" />
+                        <div *ngIf="verifyFormErrors.address" class="invalid-feedback">{{ verifyFormErrors.address }}</div>
+                      </div>
+                      <div class="form-group">
+                        <label>Message</label>
+                        <textarea class="form-control" style="height: 100px;" placeholder="Enter the message that you want to verify" formControlName="message" [class.is-invalid]="verifyFormErrors.message" [class.is-valid]="!verifyFormErrors.message && verifyForm.get('message').valid"></textarea>
+                        <div *ngIf="verifyFormErrors.message" class="invalid-feedback">{{ verifyFormErrors.message }}</div>
+                      </div>
+                      <div class="form-group">
+                        <label>Signature value</label>
+                        <input type="text" class="form-control" placeholder="Enter the signature value that you want to verify" formControlName="signature" [class.is-invalid]="verifyFormErrors.signatureValue" [class.is-valid]="!verifyFormErrors.signature && verifyForm.get('signature').valid" />
+                        <div *ngIf="verifyFormErrors.signature" class="invalid-feedback">{{ verifyFormErrors.signature }}</div>
+                      </div>
+                      <div class="form-group">
+                        <button type="button" class="btn btn-block btn-lg btn-primary text-uppercase" (click)="onVerifyButtonClick($event.target)" [disabled]="!verifyForm.valid">Verify</button>
+                      </div>
+                    </form>
+                  </ng-template>
+                </ngb-tab>
+              </ngb-tabset>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+  </section>
+</section>

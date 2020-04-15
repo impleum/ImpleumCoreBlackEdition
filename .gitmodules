@@ -1,0 +1,7 @@
+[submodule "FederatedSidechains"]
+	path = FederatedSidechains
+	url = https://github.com/SolarisPlatform/FederatedSidechains
+	
+[submodule "SolarisBitcoinFullNode"]
+	path = SolarisBitcoinFullNode
+	url = https://github.com/SolarisPlatform/SolarisBitcoinFullNode

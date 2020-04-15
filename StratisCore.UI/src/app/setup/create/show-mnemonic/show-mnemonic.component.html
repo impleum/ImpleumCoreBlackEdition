@@ -1,0 +1,40 @@
+<section id="GUI" class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 bg-dark pt-2 pb-2 border-bottom">
+      <img src="./assets/images/solaris-login-logo.png" height="40" width="228" class="float-left" />
+
+      <h4 class="float-right mt-2">Security. Privacy. Liberty.</h4>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-2">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="title-bottom-border">Secret Words</h3>
+          <div class="row">
+            <div class="col-12 mnemonics ml-2 mr-3 mt-2">
+              <span class="text-warning">
+                <strong><i class="icon lnr lnr-warning"></i></strong><strong>Warning!</strong>  Please write down your secret words and password.
+                You will need <strong>both</strong> to recover your wallet in the future.
+              </span>
+              <div class="row d-flex justify-content-center my-4">
+                <ul class="list-inline list-unstyled col">
+                  <li *ngFor="let word of mnemonicArray; let i=index" class="list-inline-item">
+                    <span class="badge-info badge">{{ i + 1 }}. {{ word }}</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer col-12">
+            <button type="button" class="btn btn-danger text-uppercase" (click)="onCancelClicked()">Cancel</button>
+            <button type="button" class="btn btn-success text-uppercase" (click)="onSaveClicked()">Save</button>
+            <button type="button" class="btn btn-primary text-uppercase" (click)="onContinueClicked()">Continue</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /row -->
+</section>
+<!-- /GUI-->
