@@ -37,7 +37,7 @@ npm install
 ## Run the UI in development mode
 
 #### Terminal Window 1
-[Run the daemon](https://github.com/impleun/ImpleumBitcoinFullNode/blob/master/Documentation/getting-started.md)  
+[Run the daemon](https://github.com/impleum/ImpleumBitcoinFullNode/blob/master/Documentation/getting-started.md)  
 
 #### Terminal Window 2
 Use `npm run mainnet` to start the UI in mainnet mode or `npm run testnet` to start the UI in testnet mode.  
