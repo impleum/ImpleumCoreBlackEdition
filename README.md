@@ -1,15 +1,11 @@
-| Windows | Mac OS | Linux
-| :---- | :------ | :---- |
-| [![Build Status](https://dev.azure.com/SolarisPlatform/SolarisCore/_apis/build/status/Hosted%20Windows%20Container)](https://dev.azure.com/SolarisPlatform/SolarisCore/_build/latest?definitionId=16) | [![Build Status](https://dev.azure.com/SolarisPlatform/SolarisCore/_apis/build/status/Hosted%20macOS)](https://dev.azure.com/SolarisPlatform/SolarisCore/_build/latest?definitionId=18) | [![Build Status](https://dev.azure.com/SolarisPlatform/SolarisCore/_apis/build/status/Hosted%20Ubuntu%201604)](https://dev.azure.com/SolarisPlatform/SolarisCore/_build/latest?definitionId=17)
-
 # Impleum Core BE
 
-This is the repository of the Solaris Core Wallet, a full node staking wallet using Electron and Angular at the front-end and .NET Core with C# in the back-end.
+This is the repository of the Impleum Core Wallet Black Edition, a full node staking wallet using Electron and Angular at the front-end and .NET Core with C# in the back-end.
 
 # Building and running the Solaris Core daemon
 
-The Solaris Core daemon is the backend REST service, hosting a Solaris node upon which Impleum Core BE depends.  
-The Solaris Core daemon is hosted in another repository. All information on building and running the daemon can be found [here](https://github.com/impleum/ImpleumCoreBlackEdition/blob/master/Documentation/getting-started.md).
+The Impleum Core daemon is the backend REST service, hosting a Impleum node upon which Impleum Core BE depends.  
+The Impleum Core daemon is hosted in another repository. All information on building and running the daemon can be found [here](https://github.com/impleum/ImpleumCoreBlackEdition/blob/master/Documentation/getting-started.md).
 
 # Building and running the Impleum Core BE user interface
 
