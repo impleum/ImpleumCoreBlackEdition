@@ -23,7 +23,7 @@ Write-Host "--> git submodule" -foregroundcolor "magenta"
 git submodule update --init --recursive
 
 Write-Host "--> npm install" -foregroundcolor "magenta"
-cd $env:BUILD_FOLDER/StratisCore.UI
+cd $env:BUILD_FOLDER/ImpleumCoreBE.UI
 npm install --verbose
 
 Write-Host "FINISHED restoring dotnet and npm packages" -foregroundcolor "magenta"
@@ -43,15 +43,15 @@ Write-Host "*--------------------------------*" -foregroundcolor "magenta"
 if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode) }
     
 Write-Host "running 'dotnet publish'" -foregroundcolor "magenta"
-cd $env:BUILD_FOLDER/StratisBitcoinFullNode/src/Stratis.StratisD
-dotnet publish -c $env:configuration -v m -r $env:win_runtime -o $env:BUILD_FOLDER\StratisCore.UI\daemon
+cd $env:BUILD_FOLDER/ImpleumBitcoinFullNode/src/Impleum.ImpleumD
+dotnet publish -c $env:configuration -v m -r $env:win_runtime -o $env:BUILD_FOLDER\ImpleumCoreBE.UI\daemon
 if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }
    
-Write-Host "Building and packaging StratisCore.UI" -foregroundcolor "magenta"
-cd $env:BUILD_FOLDER/StratisCore.UI
+Write-Host "Building and packaging ImpleumCoreBE.UI" -foregroundcolor "magenta"
+cd $env:BUILD_FOLDER/ImpleumCoreBE.UI
 npm run package:windows64
 if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }     
-Write-Host "[$env:configuration][$env:win_runtime] FINISHED StratisCore.UI packaging" -foregroundcolor "magenta"
+Write-Host "[$env:configuration][$env:win_runtime] FINISHED ImpleumCoreBE.UI packaging" -foregroundcolor "magenta"
 
 dir
 cd app-builds
