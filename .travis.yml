@@ -44,7 +44,7 @@ cache:
 # https://github.com/travis-ci/travis-ci/issues/7728
 
 install:
-- nvm install 10
+- nvm install 8.16.0
 
 before_script:
 - if [ -z "$TRAVIS_TAG" ] ; then TRAVIS_TAG=cd-unstable; fi
@@ -59,9 +59,9 @@ deploy:
     secure: $secure_github_key # this key is set on the Travis build page 
   file_glob: true
   file: 
-    - "$TRAVIS_BUILD_DIR/StratisCore.UI/app-builds/*.deb"
-    - "$TRAVIS_BUILD_DIR/StratisCore.UI/app-builds/*.tar.gz"
-    - "$TRAVIS_BUILD_DIR/StratisCore.UI/app-builds/*.dmg"
+    - "$TRAVIS_BUILD_DIR/ImpleumCoreBE.UI/app-builds/*.deb"
+    - "$TRAVIS_BUILD_DIR/ImpleumCoreBE.UI/app-builds/*.tar.gz"
+    - "$TRAVIS_BUILD_DIR/ImpleumCoreBE.UI/app-builds/*.dmg"
   skip_cleanup: true
   overwrite: true
   prerelease: true
