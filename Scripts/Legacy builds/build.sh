@@ -25,22 +25,22 @@ echo $log_prefix STARTED restoring dotnet and npm packages
 cd $TRAVIS_BUILD_DIR
 git submodule update --init --recursive
 
-cd $TRAVIS_BUILD_DIR/StratisCore.UI
+cd $TRAVIS_BUILD_DIR/ImpleumCoreBE.UI
 
 npm install
 echo $log_prefix FINISHED restoring dotnet and npm packages
 
 # dotnet publish
 echo $log_prefix running 'dotnet publish'
-cd $TRAVIS_BUILD_DIR/StratisBitcoinFullNode/src/Stratis.StratisD
-dotnet publish -c $configuration -r $TRAVIS_OS_NAME-$arch -v m -o $TRAVIS_BUILD_DIR/StratisCore.UI/daemon
+cd $TRAVIS_BUILD_DIR/ImpleumBitcoinFullNode/src/Impleum.ImpleumD
+dotnet publish -c $configuration -r $TRAVIS_OS_NAME-$arch -v m -o $TRAVIS_BUILD_DIR/ImpleumCoreBE.UI/daemon
 
-echo $log_prefix chmoding the Stratis.StratisD file
-chmod +x $TRAVIS_BUILD_DIR/StratisCore.UI/daemon/Stratis.StratisD
+echo $log_prefix chmoding the Impleum.ImpleumD file
+chmod +x $TRAVIS_BUILD_DIR/ImpleumCoreBE.UI/daemon/Impleum.ImpleumD
 
 # node packaging
-echo $log_prefix Building and packaging StratisCore.UI 
-cd $TRAVIS_BUILD_DIR/StratisCore.UI
+echo $log_prefix Building and packaging ImpleumCoreBE.UI
+cd $TRAVIS_BUILD_DIR/ImpleumCoreBE.UI
 if [ "$TRAVIS_OS_NAME" = "osx" ]
 then
   npm run package:mac
@@ -58,7 +58,7 @@ cd $TRAVIS_BUILD_DIR
 ls
 
 echo $log_prefix contents of the app-builds folder
-cd $TRAVIS_BUILD_DIR/StratisCore.UI/app-builds/
+cd $TRAVIS_BUILD_DIR/ImpleumCoreBE.UI/app-builds/
 # replace the spaces in the name with a dot as CI system have trouble handling spaces in names.
 for file in *.{dmg,tar.gz,deb}; do mv "$file" `echo $file | tr ' ' '.'` 2>/dev/null || : ; done
 
