@@ -1,0 +1,46 @@
+
+<section id="GUI" class="container-fluid" style="background-image: url(./assets/images/solaris-intro.gif); background-size: cover;">
+
+  <div class="row justify-content-center">
+    <div class="col-12 bg-dark pt-2 pb-2 border-bottom">
+      <img src="./assets/images/impleum-login-logo.png" height="40" width="180" class="float-left"/>
+
+      <h4 class="float-right mt-2">Decentralize. Confidential. Scalable.</h4>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-4 right-login" style="padding-top: 60px;">
+      <div class="card mt-4" style="opacity: 0.97; filter: alpha(opacity=97);">
+        <div class="card-body">
+          <h3 class="title-bottom-border">Login</h3>
+          <form *ngIf="hasWallet" class="form-group" [formGroup]="openWalletForm">
+            <label class="text-uppercase" for="selectWallet">Wallet</label>
+            <select class="form-control" formControlName="selectWallet">
+              <option value="" disabled selected>Choose a wallet</option>
+              <option *ngFor="let wallet of wallets" [value]="wallet">{{ wallet }}</option>
+            </select>
+            <div class="form-group mt-3">
+              <label class="text-uppercase" for="Password">Password</label>
+              <input type="password" class="form-control" id="Password" [class.is-invalid]="formErrors.password" [class.is-valid]="!formErrors.password && openWalletForm.get('password').valid" formControlName="password" formControlName="password" (keyup.enter)="onEnter()">
+              <div *ngIf="formErrors.password" class="invalid-feedback">{{ formErrors.password }}</div>
+            </div>
+          </form>
+
+          <div *ngIf="hasWallet">
+            <button type="submit" class="btn btn-block btn-lg btn-primary" [disabled]="!openWalletForm.valid || isDecrypting" (click)="onDecryptClicked()">LOGIN</button>
+          </div>
+          <div class="row d-flex justify-content-center mt-3">
+            <button [disabled]="isDecrypting" type="button" class="btn btn-block btn-link text-white" (click)="onCreateClicked()">Create or restore a wallet</button>
+          </div>
+        </div>
+      </div>
+      <!-- SVG -->
+      <div [ngClass]="{'invisible': !isDecrypting}" class="text-center">
+        <img src="./assets/images/loading.svg"/>
+      </div>
+      <!-- /SVG -->
+    </div>
+    <!-- /col -->
+  </div>
+</section>
+

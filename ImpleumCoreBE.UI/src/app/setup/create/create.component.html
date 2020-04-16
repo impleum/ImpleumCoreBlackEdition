@@ -1,0 +1,54 @@
+<section id="GUI" class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-12 bg-dark pt-2 pb-2 border-bottom">
+      <img src="./assets/images/impleum-login-logo.png" height="40" width="180" class="float-left" />
+
+      <h4 class="float-right mt-2">Decentralize. Confidential. Scalable.</h4>
+    </div>
+  </div>
+  <div class="row d-flex justify-content-center mt-2">
+    <div class="col-4">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="title-bottom-border">Create a wallet</h3>
+          <form [formGroup]="createWalletForm">
+            <div class="form-group">
+              <label for="walletName">Name</label>
+              <input type="text" class="form-control" [class.is-invalid]="formErrors.walletName" [class.is-valid]="!formErrors.walletName && createWalletForm.get('walletName').valid" formControlName="walletName" id="walletName" placeholder="Enter a wallet name.">
+              <div *ngIf="formErrors.walletName" class="invalid-feedback">{{ formErrors.walletName }}</div>
+            </div>
+            <!-- /form-group -->
+            <div class="form-group">
+              <label for="walletPassword">Password</label>
+              <input type="password" class="form-control form-control-success" [class.is-invalid]="formErrors.walletPassword" [class.is-valid]="!formErrors.walletPassword && createWalletForm.get('walletPassword').valid" formControlName="walletPassword" id="walletPassword" placeholder="Enter a password to encrypt your wallet file." placement="right" ngbTooltip="Your password will be used to encrypt your wallet and will be required for several actions across the wallet." triggers="click:blur">
+              <div *ngIf="formErrors.walletPassword" class="invalid-feedback">{{ formErrors.walletPassword }}</div>
+            </div>
+            <!-- /form-group -->
+            <div class="form-group">
+              <label for="walletPasswordConfirmation">Confirm password</label>
+              <input type="password" class="form-control" [class.is-invalid]="formErrors.walletPasswordConfirmation" [class.is-valid]="!formErrors.walletPasswordConfirmation && createWalletForm.get('walletPassword').valid && createWalletForm.get('walletPasswordConfirmation').valid" formControlName="walletPasswordConfirmation" id="walletPasswordConfirmation" placeholder="Re-enter the password to encrypt your wallet file.">
+              <div *ngIf="formErrors.walletPasswordConfirmation" class="invalid-feedback">{{ formErrors.walletPasswordConfirmation }}</div>
+            </div>
+            <!-- /form-group -->
+            <div class="form-group">
+              <label for="walletPassphrase mr-auto">Passphrase</label><em class="text-muted ml-auto float-right">(optional)</em>
+              <input type="password" class="form-control form-control-success" formControlName="walletPassphrase" id="walletPassphrase" placeholder="Enter an optional passphrase." placement="right" ngbTooltip="The passphrase will be combined with your secret words to generate the private seed and will be required to restore your wallet in the future if necessary." triggers="click:blur">
+              <div *ngIf="formErrors.walletPassphrase" class="invalid-feedback">{{ formErrors.walletPassphrase }}</div>
+            </div>
+            <div class="alert alert-danger text-center" role="alert">
+              Your passphrase will be required to recover your wallet in the future. <br><strong>Keep it safe if you choose to have one</strong>.
+            </div>
+            <div class="form-group float-right">
+              <button type="button" class="btn btn-danger text-uppercase" (click)="onBackClicked()">Cancel</button>
+              <button type="button" class="btn btn-primary ml-2 text-uppercase" [disabled]="!createWalletForm.valid" (click)="onContinueClicked()">Create a new wallet</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <!-- /form -->
+    </div>
+    <!-- /col-8 -->
+  </div>
+  <!-- /row -->
+</section>
+<!-- /GUI-->
