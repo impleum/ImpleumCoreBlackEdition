@@ -19,6 +19,8 @@ Clone this repository locally:
 
 ``` bash
 git clone https://github.com/impleum/ImpleumCoreBlackEdition.git
+cd ./ImpleumCoreBlackEdition
+git submodule update --init --recursive
 ```
 
 Navigate to the ImpleumCoreBE.UI folder in a terminal:
