@@ -1,3 +1,15 @@
+| Windows | Linux | OS X |
+| :---- | :------ | :---- |
+[![Windows build status][1]][2] | [![Linux build status][3]][4] | [![OS X build status][5]][6] | 
+
+[1]: https://ci.appveyor.com/api/projects/status/github/impleum/impleumcoreblackedition
+[2]: https://ci.appveyor.com/project/impleum/impleumcoreblackedition
+[3]: https://travis-ci.org/impleum/ImpleumCoreBlackEdition.svg?branch=master
+[4]: https://travis-ci.org/impleum/ImpleumCoreBlackEdition
+[5]: https://travis-ci.org/impleum/ImpleumCoreBlackEdition.svg?branch=master
+[6]: https://travis-ci.org/github/impleum/ImpleumCoreBlackEdition
+
+
 # Impleum Core BE
 
 This is the repository of the Impleum Core Wallet Black Edition, a full node staking wallet using Electron and Angular at the front-end and .NET Core with C# in the back-end.
