@@ -33,7 +33,7 @@ env:
 
 cache:
   directories:
-  - ${TRAVIS_BUILD_DIR}/StratisCore.UI/node_modules
+  - ${TRAVIS_BUILD_DIR}/ImpleumCoreBE.UI/node_modules
   - $HOME/.electron
   - $HOME/.nuget/packages
   - /usr/share/dotnet/sdk/ # dotnet path for linux
