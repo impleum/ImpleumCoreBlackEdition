@@ -23,7 +23,7 @@ echo $log_prefix STARTED restoring dotnet and npm packages
 cd $build_directory
 git submodule update --init --recursive
 
-cd $build_directory/StratisCore.UI
+cd $build_directory/ImpleumCoreBE.UI
 
 echo $log_prefix Running npm install
 npm install --verbose
@@ -32,16 +32,16 @@ echo $log_prefix FINISHED restoring dotnet and npm packages
 
 # dotnet publish
 echo $log_prefix running 'dotnet publish'
-cd $build_directory/StratisBitcoinFullNode/src/Stratis.StratisD
+cd $build_directory/ImpleumBitcoinFullNode/src/Impleum.ImpleumD
 dotnet restore
-dotnet publish -c $configuration -r $os_platform-$arch -v m -o $build_directory/StratisCore.UI/daemon
+dotnet publish -c $configuration -r $os_platform-$arch -v m -o $build_directory/SImpleumCoreBE.UI/daemon
 
 echo $log_prefix chmoding the Stratis.StratisD file
-chmod +x $build_directory/StratisCore.UI/daemon/Stratis.StratisD
+chmod +x $build_directory/StratisCore.UI/daemon/Impleum.ImpleumD
 
 # node Build
-cd $build_directory/StratisCore.UI
-echo $log_prefix Building and packaging StratisCore.UI
+cd $build_directory/ImpleumCoreBE.UI
+echo $log_prefix Building and packaging ImpleumCoreBE.UI
 npm run package:linux
 echo $log_prefix finished packaging
 
@@ -50,7 +50,7 @@ cd $build_directory
 ls
 
 echo $log_prefix contents of the app-builds folder
-cd $build_directory/StratisCore.UI/app-builds/
+cd $build_directory/ImpleumCoreBE.UI/app-builds/
 # replace the spaces in the name with a dot as CI system have trouble handling spaces in names.
 for file in *.{tar.gz,deb}; do mv "$file" `echo $file | tr ' ' '.'` 2>/dev/null || : ; done
 
