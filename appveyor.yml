@@ -51,8 +51,8 @@ install:
       Write-Host "--> git submodule" -foregroundcolor "magenta"
       git submodule update --init --recursive
       
-      Write-Host "--> node 6" -foregroundcolor "magenta"
-      Install-Product node 6
+      Write-Host "--> node 8.16.0" -foregroundcolor "magenta"
+      Install-Product node 8.16.0
       
       Write-Host "--> npm config" -foregroundcolor "magenta"
       npm config set unsafe-perm=true
@@ -86,12 +86,12 @@ before_build:
 build_script:
 - ps: |
       Write-Host "$env:log_prefix running 'dotnet publish'" -foregroundcolor "magenta"
-      cd $env:APPVEYOR_BUILD_FOLDER/StratisBitcoinFullNode/src/Stratis.StratisD
-      dotnet publish -c $env:configuration -v m -r $env:win_runtime -o $env:APPVEYOR_BUILD_FOLDER\StratisCore.UI\daemon
+      cd $env:APPVEYOR_BUILD_FOLDER/ImpleumBitcoinFullNode/src/Impleum.ImpleumD
+      dotnet publish -c $env:configuration -v m -r $env:win_runtime -o $env:APPVEYOR_BUILD_FOLDER\ImpleumCoreBE.UI\daemon
       if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }
       
       Write-Host "$env:log_prefix Building and packaging the ImpleumCoreBE.UI" -foregroundcolor "magenta"
-      cd $env:APPVEYOR_BUILD_FOLDER/StratisCore.UI
+      cd $env:APPVEYOR_BUILD_FOLDER/ImpleumCoreBE.UI
       npm run package:windows --$env:arch
       if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }     
       Write-Host "[$env:configuration][$env:win_runtime] Finished ImpleumCoreBE.UI packaging" -foregroundcolor "magenta"
@@ -115,7 +115,7 @@ test_script:
 # pushing all files in build directory recursively
 artifacts:
 - path: ImpleumCoreBE.UI\app-builds\*.exe
-  name: StratisCore.UI app
+  name: ImpleumCoreBE.UI app
   
 #----------------------------------#
 #      deployment configuration    #
