@@ -58,7 +58,7 @@ install:
       npm config set unsafe-perm=true
       
       Write-Host "--> npm install" -foregroundcolor "magenta"
-      cd $env:APPVEYOR_BUILD_FOLDER/StratisCore.UI
+      cd $env:APPVEYOR_BUILD_FOLDER/ImpleumCoreBE.UI
       npm install
       
       Write-Host "$env:log_prefix FINISHED restoring dotnet and npm packages" -foregroundcolor "magenta"
@@ -90,11 +90,11 @@ build_script:
       dotnet publish -c $env:configuration -v m -r $env:win_runtime -o $env:APPVEYOR_BUILD_FOLDER\StratisCore.UI\daemon
       if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }
       
-      Write-Host "$env:log_prefix Building and packaging the StratisCore.UI" -foregroundcolor "magenta"
+      Write-Host "$env:log_prefix Building and packaging the ImpleumCoreBE.UI" -foregroundcolor "magenta"
       cd $env:APPVEYOR_BUILD_FOLDER/StratisCore.UI
       npm run package:windows --$env:arch
       if ($LastExitCode -ne 0) { $host.SetShouldExit($LastExitCode)  }     
-      Write-Host "[$env:configuration][$env:win_runtime] Finished StratisCore.UI packaging" -foregroundcolor "magenta"
+      Write-Host "[$env:configuration][$env:win_runtime] Finished ImpleumCoreBE.UI packaging" -foregroundcolor "magenta"
       
       dir
       cd app-builds
@@ -114,7 +114,7 @@ test_script:
 
 # pushing all files in build directory recursively
 artifacts:
-- path: StratisCore.UI\app-builds\*.exe
+- path: ImpleumCoreBE.UI\app-builds\*.exe
   name: StratisCore.UI app
   
 #----------------------------------#
