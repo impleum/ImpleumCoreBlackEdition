@@ -36,8 +36,8 @@ cd $build_directory/ImpleumBitcoinFullNode/src/Impleum.ImpleumD
 dotnet restore
 dotnet publish -c $configuration -r $os_platform-$arch -v m -o $build_directory/SImpleumCoreBE.UI/daemon
 
-echo $log_prefix chmoding the Stratis.StratisD file
-chmod +x $build_directory/StratisCore.UI/daemon/Impleum.ImpleumD
+echo $log_prefix chmoding the Impleum.ImpleumD file
+chmod +x $build_directory/ImpleumCoreBE.UI/daemon/Impleum.ImpleumD
 
 # node Build
 cd $build_directory/ImpleumCoreBE.UI
