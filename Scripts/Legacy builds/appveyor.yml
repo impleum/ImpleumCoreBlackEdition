@@ -18,7 +18,7 @@ branches:
 #---------------------------------#
 
 image: Visual Studio 2017
-clone_folder: c:\projects\stratiscoreui
+clone_folder: c:\projects\impleumcoreui
 configuration:
   - Release
 
@@ -36,7 +36,7 @@ environment:
 
 # build cache to preserve files/folders between builds
 cache:
-  - '%APPVEYOR_BUILD_FOLDER%\StratisCore.UI\node_modules'
+  - '%APPVEYOR_BUILD_FOLDER%\ImpleumCoreBE.UI\node_modules'
   - '%USERPROFILE%\.nuget\packages'
   
 init:
