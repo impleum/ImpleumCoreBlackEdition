@@ -34,7 +34,7 @@ echo $log_prefix FINISHED restoring dotnet and npm packages
 echo $log_prefix running 'dotnet publish'
 cd $build_directory/ImpleumBitcoinFullNode/src/Impleum.ImpleumD
 dotnet restore
-dotnet publish -c $configuration -r $os_platform-$arch -v m -o $build_directory/SImpleumCoreBE.UI/daemon
+dotnet publish -c $configuration -r $os_platform-$arch -v m -o $build_directory/ImpleumCoreBE.UI/daemon
 
 echo $log_prefix chmoding the Impleum.ImpleumD file
 chmod +x $build_directory/ImpleumCoreBE.UI/daemon/Impleum.ImpleumD
