@@ -76,5 +76,5 @@ Every time someone pushes to the master branch or create a pull request on it, a
 
 If you want the :sparkles: latest :sparkles: (unstable :bomb:) version of the Breeze app, you can get it here: 
 
-https://github.com/impleum/ImpleumCoreBlackEdition/releases/tag/Continuous-Delivery
+https://github.com/impleum/ImpleumCoreBlackEdition/releases/tag/cd-unstable
 
