@@ -246,11 +246,13 @@ export class ColdStakingOverviewComponent implements OnInit, OnDestroy {
         this.marketSummarySubscription = this.txbitService.getMarketSummary()
             .subscribe(
                 response => {
-                    this.lastPrice = response.result.Last;
+                    let infoCrex = response[0];
+                    this.lastPrice = infoCrex.last;
                     this.spendableColdBalanceBaseValue = parseFloat(((this.lastPrice * this.spendableColdBalance) / parseFloat("100000000")).toFixed(2));
                     this.spendableHotBalanceBaseValue = parseFloat(((this.lastPrice * this.spendableHotBalance) / parseFloat("100000000")).toFixed(2));
                 });
     }
+
 
     public openTransactionDetailDialog(transaction: TransactionInfo) {
         const modalRef = this.modalService.open(TransactionDetailsComponent, { backdrop: "static", keyboard: false });

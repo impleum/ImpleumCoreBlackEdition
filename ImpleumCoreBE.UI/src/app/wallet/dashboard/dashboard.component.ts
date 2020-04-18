@@ -105,27 +105,28 @@ export class DashboardComponent implements OnInit, OnDestroy {
     this.marketSummarySubscription = this.txbitService.getMarketSummary()
       .subscribe(
         response => {
-          this.lastPrice = response.result.Last;
-          this.previousDayPrice = response.result.PrevDay;
-          if (this.lastPrice < this.previousDayPrice) {
+          let infoCrex = response[0];
+          this.lastPrice = infoCrex.last;
+          if (infoCrex.percentChange < 0) {
             this.priceClass = "text-danger";
             this.priceIcon = "lnr-arrow-down";
-          } else if (this.lastPrice > this.previousDayPrice) {
+          } else if (infoCrex.percentChange > 0) {
             this.priceClass = "text-success";
             this.priceIcon = "lnr-arrow-up";
           } else {
             this.priceClass = "text-lightblue";
             this.priceIcon = "lnr-arrow-right";
           }
-
-          this.priceChange = parseFloat((((this.lastPrice - this.previousDayPrice) / this.previousDayPrice) * parseFloat("100")).toFixed(2));
-          this.highPrice = response.result.High;
-          this.lowPrice = response.result.Low;
-          this.baseVolume = response.result.BaseVolume;
+ 
+          this.priceChange = infoCrex.percentChange.toFixed(2);
+          this.highPrice = infoCrex.high;
+          this.lowPrice = infoCrex.low;
+          this.baseVolume = infoCrex.baseVolume;
 
           this.spendableBalanceBaseValue = parseFloat(((this.lastPrice * this.spendableBalance) / parseFloat("100000000")).toFixed(2));
         });
   }
+
 
  
   private getWalletBalance() {

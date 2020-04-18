@@ -12,15 +12,14 @@ export class TxbitService {
     this.http = http;
   }
 
-  private apiBaseUrl: string = "https://api.txbit.io/api";
+  private apiBaseUrl: string = "https://api.crex24.com";
   private http: HttpClient;
   private pollingInterval = interval(5000);
 
   public getMarketSummary(): Observable<MarketSummary> {
     return this.pollingInterval.pipe(
       startWith(0),
-      switchMap(() => this.http.get<MarketSummary>(this.apiBaseUrl + '/public/getmarketsummary?market=XLR/BTC'))
+      switchMap(() => this.http.get<MarketSummary>(this.apiBaseUrl + '/v2/public/tickers?instrument=IMPL-BTC'))
     );
   }
 }
-
