@@ -14,7 +14,7 @@
 
 This is the repository of the Impleum Core Wallet Black Edition, a full node staking wallet using Electron and Angular at the front-end and .NET Core with C# in the back-end.
 
-# Building and running the Solaris Core daemon
+# Building and running the Impleum Core daemon
 
 The Impleum Core daemon is the backend REST service, hosting a Impleum node upon which Impleum Core BE depends.  
 The Impleum Core daemon is hosted in another repository. All information on building and running the daemon can be found [here](https://github.com/impleum/ImpleumCoreBlackEdition/blob/master/Documentation/getting-started.md).
